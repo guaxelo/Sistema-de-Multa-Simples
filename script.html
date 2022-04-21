@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head id='head'>
+
+    <style>
+        #conteiner{
+            color: aliceblue;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 30px;
+            size: 10pt;
+            
+        }
+
+        body{
+            background-color: rgb(25, 13, 36);
+        }
+
+        #title{
+            margin-top: 0px;
+            font: 'Courier New', Courier, monospace;
+            color: rgb(19, 33, 34);
+            background-color: whitesmoke;
+            margin-left: 20%;
+            margin-right: 20%;  
+            border-radius: 1%;
+        
+        }
+        #button{
+            width: 70px;
+            height: 30px;
+            font-family:'Times New Roman', Times, serif ;
+            margin-bottom: 30px;
+            
+            
+        }
+        #txtvel{
+            width: 6%;
+            height: 28px;
+            
+        }
+        #formulario {
+            background-color: rgb(25, 13, 36);
+        }
+        
+
+    </style>
+    
+<div id="conteiner">
+    <body>
+        
+            <h1 id="title">Sistemas de Multas</h1>
+            
+            
+            <div id="formulario">Velocidade do Carro <input type="number" name="txtvel" id="txtvel"> Km/h
+            <input type="button" id="button" value="Verificar" onclick="calcular()">
+                <div id="res"></div></div>
+            
+            <script>
+                function calcular() {
+                    var txtv = document.getElementById('txtvel')
+                    var vel = Number(txtv.value)
+                    var res = document.getElementById('res')
+                    
+                    if(vel >= 0 && vel <= 500){
+                        res.innerHTML = `<p>Sua Velocidade atual é de <strong>${vel} Km/h</strong></p>`
+                        if (vel > 60) {
+                            res.innerHTML += `<strong>Sua velocidade esta acima do permitido!<br><br>MULTADO!!</strong>`
+                            res.style.color = 'orange'
+                        }
+                        else{
+                            res.style.color = 'white'
+                            res.innerHTML += `<p>Dirija sempre com cinto de segurança`
+                        }
+                    }
+                    else{
+                        res.innerHTML= `NÃO EXISTE VELOCIDADE ${vel}<br>POR FAVOR REFAZER.`
+                    }
+                    
+                    }
+            
+            </script>
+        
+    </body>
+</div>
+</html>
